@@ -27,6 +27,10 @@ spec:
       serviceAccountName: {{ include "backend.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: app-settings
+          secret:
+            secretName: backend-settings
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -35,8 +39,14 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
+          volumeMounts:
+            - mountPath: /etc/temporary-news/
+              name: app-settings
+          env:
+            - name: APP_SETTINGS
+              value: /etc/temporary-news/prod-settings.json
           livenessProbe:
             httpGet:
               path: /

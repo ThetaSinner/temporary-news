@@ -1,2 +1,4 @@
 deploy:
+  #- kubectl create secret backend-settings --from-file=backend/prod-settings.json
+  - okteto build -t registry.cloud.okteto.net/thetasinner/temporary-news-backend backend
   - helm upgrade --install temporary-news chart

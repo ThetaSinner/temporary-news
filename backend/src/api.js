@@ -5,6 +5,10 @@ const app = express()
 app.use(express.json())
 const port = 3005
 
+app.get('/', (req, res) => {
+    res.send('OK')
+})
+
 app.post('/newsStories', async (req, res) => {
     try {
         await createNewsStory(req.body)
