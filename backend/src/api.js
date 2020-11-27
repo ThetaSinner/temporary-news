@@ -1,7 +1,9 @@
 import express from 'express'
+import cors from 'cors'
 import {getNewsStories, createNewsStory} from "./app.js";
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 const port = 3005
 
