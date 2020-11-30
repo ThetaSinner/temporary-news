@@ -11,4 +11,6 @@ RUN yarn install
 
 ADD src/ .
 
+EXPOSE 3005
+
 ENTRYPOINT [ "node", "/app/index.js" ]
