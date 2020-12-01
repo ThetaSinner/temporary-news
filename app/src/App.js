@@ -75,7 +75,6 @@ function App() {
                         <Route path="/">
                             <h2>Welcome to Temporary News</h2>
                             <p>Have something to post? Go ahead and get started!</p>
-
                             <StoryGrid />
                         </Route>
                     </Switch>
