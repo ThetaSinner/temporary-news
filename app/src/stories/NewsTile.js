@@ -34,7 +34,7 @@ export default function NewsTile({ title, author, expired, body }) {
 
     return (
         <Card className={cardClass}>
-            <CardContent gutterBottom noWrap>
+            <CardContent>
                 <Typography variant="h5" className={titleClass}>
                     {title}
                 </Typography>
